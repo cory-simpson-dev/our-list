@@ -10,15 +10,15 @@ Array.from(deleteText).forEach((element)=>{
 // })
 
 async function deleteTask(){
-    const tBody = this.parentNode.childNodes[1].innerText
-    const dLine = this.parentNode.childNodes[3].innerText
+    const tBody = this.parentNode.childNodes[3].innerText
+    // const dLine = this.parentNode.childNodes[5].innerText
     try{
         const response = await fetch('deleteTask', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               'taskBodyS': tBody,
-              'deadlineS': dLine
+            //   'deadlineS': dLine
             })
           })
         const data = await response.json()

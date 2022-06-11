@@ -6,56 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    <div>
+    <div class="header">
         <h1>Our List</h1>
     </div>
-    <div>
-        <ul class="tasks">
-        <% for(let i=0; i < info.length; i++) {%>
-            <% if(info[i].class === 'todo') { %>
-            <li class="task">
-                <span><%= info[i].taskBody %></span>
-                <span><%= info[i].deadline.split('T').join(' ') %></span>
-                <!-- <span><%= info[i].likes %></span> -->
-                <!-- <span class='fa fa-thumbs-up'></span> -->
-                <span class='fa fa-trash'></span>
-            </li>
-            <% } %>
-        <% } %>
-        </ul>
+    <div class="selection-container">
+        <span class="todo selection">To-do</span>
+        <span class="grocery selection">Grocery</span>
     </div>
+    <div class="tasks-container">
+            <h3>To-do List</h3>
+            <div class="chore-container">
+                <ul class="tasks chore-ul">
+                    <li class="task task-title">
+                        <span>To-do</span>
+                        <span class="deadline">Deadline</span>
+                    </li>
+                    <% for(let i=0; i < info.length; i++) {%>
+                        <% if(info[i].class === 'todo' && info[i].category === 'todo') { %>
+                        <li class="task">
+                            <span class='fa fa-trash'></span>
+                            <span><%= info[i].taskBody %></span>
+                            <span class="deadline"><%= info[i].deadline.split('T').join(' ') %></span>
+                        </li>
+                        <% } %>
+                    <% } %>
+                </ul>
+            </div>
 
-    <div>
-        <!-- <h2>Add A Task:</h2> -->
+            <h3>Grocery List</h3>
+            <div class="groceries-container">
+                <ul class="tasks">
+                    <% for(let i=0; i < info.length; i++) {%>
+                        <% if(info[i].class === 'todo' && info[i].category === 'grocery') { %>
+                        <li class="task">
+                            <span class='fa fa-trash'></span>
+                            <span><%= info[i].taskBody %></span>
+                        </li>
+                        <% } %>
+                    <% } %>
+                </ul>
+            </div>
+        
+    </div>
+    <div class="add-to-do">
 
         <form action="/addToDo" method="POST">
-            <input type="text" placeholder="Task" maxlength="80" name="taskBody">
+            <select name="category">
+                <option value="grocery">Grocery</option>
+                <option value="todo" selected>To Do</option>
+            </select>
             <input type="datetime-local" name="deadline">
+            <input type="text" placeholder="Task" maxlength="35" name="taskBody">
             <input type="submit">
         </form>
     </div>
+   
 
-    <div id="messages">
-        <!-- <h2>Messages</h2> -->
+    <div id="messages" class="messages-container">
 
-        <ul class="messages">
-            <% for(let i=0; i < info.length; i++) {%>
-                <% if(info[i].class === 'message') { %>
-                    <% let date = info[i].timeSent.toString().split(' ') %>
-                <li class="message">
-                    <span><%= date.slice(4,5) %></span>
-                    <span><%= info[i].messageBody %></span>
-                    <!-- <span class='fa fa-trash'></span> -->
-                </li>
+        <div id="chat-container" class="chat-container">
+            <ul class="messages">
+                <% for(let i=0; i < info.length; i++) {%>
+                    <% if(info[i].class === 'message') { %>
+                        <% let date = info[i].timeSent.toString().split(' ') %>
+                    <li class="message">
+                        <span><%= date.slice(4,5) %></span>
+                        <span><%= info[i].messageBody %></span>
+                        <!-- <span class='fa fa-trash'></span> -->
+                    </li>
+                    <% } %>
                 <% } %>
-            <% } %>
-        </ul>    
-        <form action="/addMessage" method="POST">
+            </ul>    
+        </div>
+        <script>
+            var div = document.getElementById("chat-container")
+            div.scrollTop = div.scrollHeight
+        </script>
+        <form action="/addMessage" method="POST" class="send-message-form">
             <input type="text" placeholder="Max characters: 140" maxlength="140" name="messageBody">
-            <input type="submit">
+            <button type="submit">Send</button>
         </form>
     </div>
     <script src='js/main.js'></script>

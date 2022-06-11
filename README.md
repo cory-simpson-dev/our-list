@@ -10,7 +10,7 @@ My wife and I often have trouble keeping track of our mutual to-do list
 I laid the groundwork for Our List with node.js, express, and the EJS templating engine. 
 The data is stored in a single collection on a shared MongoDB cluster. The privacy is a non-issue since currently only my wife and I use the application. In essence, it is a rather simple CRUD application with users being able to create and delete task items and post time-stamped messages.
 
-A mobile-first approach was used for the design. Flexbox played a huge factor in keeping the design as simple as possible.
+A mobile-first approach was used for the design. Flexbox played a huge factor in keeping the design as simple as possible. The single page design started with a chat at the bottom, and the toggle-able lists in the mid-top section. An additional form was created so the form interface of each list wasn't crowded.
 
 See future considerations for Our List in the Roadmap section below.
 
@@ -25,3 +25,10 @@ In the near future I hope to implement the following:
     - categories for task items (i.e. dropdown for custom categories/section) stored in localstorage
 
 ## Changelog
+
+2022/06/11:
+
+- improved chat history (scroll wheel starts at bottom)
+- created category selection for tasks section
+- linked reset.css
+- implemented design wireframe

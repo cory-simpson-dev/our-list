@@ -24,7 +24,6 @@ app.use(express.json())
 app.get('/',(request, response)=>{
     db.collection('todo').find().sort({deadline: 1}).toArray()
     .then(data => {
-        console.log(data)
         response.render('index.ejs', { info: data })
     })
     .catch(error => console.error(error))
@@ -32,7 +31,7 @@ app.get('/',(request, response)=>{
 
 app.post('/addToDo', (request, response) => {
     db.collection('todo').insertOne({class: 'todo', taskBody: request.body.taskBody,
-    deadline: request.body.deadline})
+    deadline: request.body.deadline, category: request.body.category})
     .then(result => {
         console.log('Item Added')
         response.redirect('/')

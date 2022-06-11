@@ -1,24 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     font-size: 10px;
 }
+
+/* LAYOUT */
 
 body {
     margin: 0;
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     height: 100vh;
 }
 
-h1{
-    color: red;
+/* DESIGN */
+
+div.header {
+    align-self: center;
+    padding: 2rem;
 }
 
-li {
+h1 {
+    font-size: 2.4rem;
+}
+
+div.selection-container {
+    display: flex;
+    justify-content: center;
+}
+
+span.selection {
+    padding: 1rem;
+}
+
+span.todo {
+    background-color: seashell;
+    border: 1px solid black;
+    border-radius: 5px 0 0 5px;
+}
+
+span.grocery {
+    background-color: seashell;
+    border: 1px solid black;
+    border-radius: 0 5px 5px 0px;
+}
+
+
+/* TASKS SECTION DESIGN */
+
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+li.task-title span{
+    border-bottom: 1px solid black;
+    font-size: 1.8rem;
+}
+li.task {
+    font-size: 1.4rem;
+    padding: .2rem;
+}
+
+div.tasks-container {
+    min-height: 20rem;
+    max-height: 40rem;
+}
+
+div.chore-container,
+div.groceries-container {
+    padding: .2rem;
+}
+
+div.add-to-do {
+    margin-top: 2rem;
+}
+span.deadline{
+    display: block;
+    float: right;
+}
+
+
+/* CHAT SECTION DESIGN */
+
+li.message {
     list-style-type: none;
+    line-height: 2rem;
+    border-bottom: 1px solid #ccc;
 }
 
-div#messages {
-    max-height: 40px;
+li.message span {
+    font-size: 1.4rem;
+}
+div.messages-container {
+    border: 1px solid black;
+    border-radius: .5rem;
+    margin-top: 2rem;
+}
+
+div.chat-container {
+    height: 20rem;
+    overflow: auto;
+}
+
+.send-message-form input {
+    width: 100%;
+    border: .5px solid #bbb;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    padding: 1rem;
+}
+
+.send-message-form button {
+    display: none;
 }
