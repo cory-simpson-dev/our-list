@@ -10,7 +10,9 @@ My wife and I often have trouble keeping track of our mutual to-do list
 I laid the groundwork for Our List with node.js, express, and the EJS templating engine. 
 The data is stored in a single collection on a shared MongoDB cluster. The privacy is a non-issue since currently only my wife and I use the application. In essence, it is a rather simple CRUD application with users being able to create and delete task items and post time-stamped messages.
 
-A mobile-first approach was used for the design. Flexbox played a huge factor in keeping the design as simple as possible. The single page design started with a chat at the bottom, and the toggle-able lists in the mid-top section. An additional form was created so the form interface of each list wasn't crowded.
+A mobile-first approach was used for the design. Flexbox played a huge factor in keeping the design as simple as possible. The single page design started with a chat at the bottom, and the toggle-able lists in the mid-top section. An additional form was created so the form interface of each list wasn't crowded. To stay true to my original objective of building a simple application, I decided to add yet another category section to the to-do list. 
+
+To prevent the user from being directed to the initial ejs render, localStorage is utilized to save the last category selected by them. On load, the page that is sitting in the localStorage item 'category' will be rendered.
 
 See future considerations for Our List in the Roadmap section below.
 
@@ -22,9 +24,14 @@ In the near future I hope to implement the following:
 - private, custom url creation for account users
 - improved ux/ui
     - limited chat storage/display with scroll wheel
-    - categories for task items (i.e. dropdown for custom categories/section) stored in localstorage
 
 ## Changelog
+
+2022/06/12:
+
+- added category selection for grocery items to be sorted (not yet connected to db)
+- worked on wirerframe across different media screen sizes
+- separated to-do and grocery sections to be visible with applicable inputs present via localStorage
 
 2022/06/11:
 

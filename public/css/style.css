@@ -4,16 +4,21 @@
 
 html {
     font-size: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 /* LAYOUT */
 
 body {
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     height: 100vh;
+    max-width: 70rem;
+    min-width: 39rem
 }
 
 /* DESIGN */
@@ -40,12 +45,15 @@ span.todo {
     background-color: seashell;
     border: 1px solid black;
     border-radius: 5px 0 0 5px;
+    width: 6rem;
+    text-align: center;
 }
 
 span.grocery {
-    background-color: seashell;
+    background-color: rgb(181, 222, 241);
     border: 1px solid black;
     border-radius: 0 5px 5px 0px;
+    width: 6rem;
 }
 
 
@@ -57,23 +65,21 @@ h3 {
     padding: 1rem;
 }
 
-li.task-title span{
-    border-bottom: 1px solid black;
-    font-size: 1.8rem;
-}
+
 li.task {
     font-size: 1.4rem;
     padding: .2rem;
 }
 
 div.tasks-container {
-    min-height: 20rem;
-    max-height: 40rem;
+    height: 48vh;
 }
 
 div.chore-container,
 div.groceries-container {
     padding: .2rem;
+    max-height: 30rem;
+    overflow: auto;
 }
 
 div.add-to-do {
@@ -84,17 +90,43 @@ span.deadline{
     float: right;
 }
 
+#category {
+    display: none;
+}
+
+.add-item-form {
+    display: flex;
+}
+
+.add-item-form input,
+#grocery-category {
+    width: 50%;
+    border: .5px solid #bbb;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    height: 4.2rem;
+    padding: 1rem;
+}
+
+.add-item-form button {
+    display: none;
+}
 
 /* CHAT SECTION DESIGN */
 
 li.message {
     list-style-type: none;
-    line-height: 2rem;
+    line-height: 2.5rem;
     border-bottom: 1px solid #ccc;
+    margin: 0 1rem;
 }
 
 li.message span {
     font-size: 1.4rem;
+}
+
+span.date {
+    margin-right: 1rem;
 }
 div.messages-container {
     border: 1px solid black;
@@ -103,7 +135,7 @@ div.messages-container {
 }
 
 div.chat-container {
-    height: 20rem;
+    height: 30vh;
     overflow: auto;
 }
 

@@ -15,17 +15,17 @@
         <h1>Our List</h1>
     </div>
     <div class="selection-container">
-        <span class="todo selection">To-do</span>
-        <span class="grocery selection">Grocery</span>
+        <span id="todo-selection" class="todo selection">To-do</span>
+        <span id="grocery-selection" class="grocery selection">Grocery</span>
     </div>
     <div class="tasks-container">
-            <h3>To-do List</h3>
+        <section id="todo-list" class="tasks-toggle">
+            <h3>
+                <span>To-do</span>
+                <span class="deadline">Deadline</span>
+            </h3>
             <div class="chore-container">
                 <ul class="tasks chore-ul">
-                    <li class="task task-title">
-                        <span>To-do</span>
-                        <span class="deadline">Deadline</span>
-                    </li>
                     <% for(let i=0; i < info.length; i++) {%>
                         <% if(info[i].class === 'todo' && info[i].category === 'todo') { %>
                         <li class="task">
@@ -37,7 +37,9 @@
                     <% } %>
                 </ul>
             </div>
+        </section>
 
+        <section id="grocery-list" class="groceries-toggle">
             <h3>Grocery List</h3>
             <div class="groceries-container">
                 <ul class="tasks">
@@ -51,20 +53,28 @@
                     <% } %>
                 </ul>
             </div>
-        
-    </div>
-    <div class="add-to-do">
+        </section>
+        <div class="add-to-do">
 
-        <form action="/addToDo" method="POST">
-            <select name="category">
-                <option value="grocery">Grocery</option>
-                <option value="todo" selected>To Do</option>
-            </select>
-            <input type="datetime-local" name="deadline">
-            <input type="text" placeholder="Task" maxlength="35" name="taskBody">
-            <input type="submit">
-        </form>
+            <form class="add-item-form" action="/addToDo" method="POST">
+                <select id="category" name="category">
+                    <option value="grocery">Grocery</option>
+                    <option value="todo" selected>To Do</option>
+                </select>
+                <input type="text" placeholder="Add an item" maxlength="35" name="taskBody">
+                <select id="grocery-category" name="grocery-category">
+                    <option value="none" selected>Select a category</option>
+                    <option value="produce">Produce</option>
+                    <option value="frozen">Frozen</option>
+                    <option value="bakery">Bakery</option>
+                    <option value="other">Other</option>
+                </select>
+                <input id="deadline" type="datetime-local" name="deadline">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
+    
    
 
     <div id="messages" class="messages-container">
@@ -75,7 +85,7 @@
                     <% if(info[i].class === 'message') { %>
                         <% let date = info[i].timeSent.toString().split(' ') %>
                     <li class="message">
-                        <span><%= date.slice(4,5) %></span>
+                        <span class="date"><%= date.slice(4,5) %></span>
                         <span><%= info[i].messageBody %></span>
                         <!-- <span class='fa fa-trash'></span> -->
                     </li>
@@ -88,7 +98,7 @@
             div.scrollTop = div.scrollHeight
         </script>
         <form action="/addMessage" method="POST" class="send-message-form">
-            <input type="text" placeholder="Max characters: 140" maxlength="140" name="messageBody">
+            <input type="text" placeholder="Send a message" maxlength="140" name="messageBody">
             <button type="submit">Send</button>
         </form>
     </div>
