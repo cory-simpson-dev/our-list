@@ -3,7 +3,7 @@ const toggleGrocery = document.getElementById('grocery-selection')
 const groceryList = document.getElementById('grocery-list')
 const todoList = document.getElementById('todo-list')
 const category = document.getElementById('category')
-const groceryCategory = document.getElementById('grocery-category')
+const groceryCategory = document.getElementById('gc')
 const deadline = document.getElementById('deadline')
 const deleteText = document.querySelectorAll('.fa-trash')
 

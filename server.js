@@ -31,7 +31,7 @@ app.get('/',(request, response)=>{
 
 app.post('/addToDo', (request, response) => {
     db.collection('todo').insertOne({class: 'todo', taskBody: request.body.taskBody,
-    deadline: request.body.deadline, category: request.body.category})
+    deadline: request.body.deadline, category: request.body.category, gc: request.body.gc})
     .then(result => {
         console.log('Item Added')
         response.redirect('/')
@@ -40,8 +40,7 @@ app.post('/addToDo', (request, response) => {
 })
 
 app.post('/addMessage', (request, response) => {
-    db.collection('todo').insertOne({class: 'message', messageBody: request.body.messageBody,
-    timeSent: new Date()})
+    db.collection('todo').insertOne({class: 'message', messageBody: request.body.messageBody, timeSent: new Date()})
     .then(result => {
         console.log('Message Sent')
         response.redirect('/')

@@ -21,7 +21,7 @@
     <div class="tasks-container">
         <section id="todo-list" class="tasks-toggle">
             <h3>
-                <span>To-do</span>
+                <span class="task">Task</span>
                 <span class="deadline">Deadline</span>
             </h3>
             <div class="chore-container">
@@ -42,16 +42,72 @@
         <section id="grocery-list" class="groceries-toggle">
             <h3>Grocery List</h3>
             <div class="groceries-container">
-                <ul class="tasks">
-                    <% for(let i=0; i < info.length; i++) {%>
-                        <% if(info[i].class === 'todo' && info[i].category === 'grocery') { %>
-                        <li class="task">
-                            <span class='fa fa-trash'></span>
-                            <span><%= info[i].taskBody %></span>
-                        </li>
+                <div class="uncategorized-groceries">
+                    <ul class="tasks">
+                        <% for(let i=0; i < info.length; i++) {%>
+                            <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'none') { %>
+                            <li class="task">
+                                <span class='fa fa-trash'></span>
+                                <span><%= info[i].taskBody %></span>
+                            </li>
+                            <% } %>
                         <% } %>
-                    <% } %>
-                </ul>
+                    </ul>
+                </div>
+                <section id="grocery-right">
+                    <div id="produce">
+                        <ul class="tasks">
+                            <li class="category-title">Produce</li>
+                            <% for(let i=0; i < info.length; i++) {%>
+                                <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'produce') { %>
+                                <li class="task">
+                                    <span class='fa fa-trash'></span>
+                                    <span><%= info[i].taskBody %></span>
+                                </li>
+                                <% } %>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div id="frozen">
+                        <ul class="tasks">
+                            <li class="category-title">Frozen</li>
+                            <% for(let i=0; i < info.length; i++) {%>
+                                <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'frozen') { %>
+                                <li class="task">
+                                    <span class='fa fa-trash'></span>
+                                    <span><%= info[i].taskBody %></span>
+                                </li>
+                                <% } %>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div id="bakery">
+                        <ul class="tasks">
+                            <li class="category-title">Bakery</li>
+                            <% for(let i=0; i < info.length; i++) {%>
+                                <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'bakery') { %>
+                                <li class="task">
+                                    <span class='fa fa-trash'></span>
+                                    <span><%= info[i].taskBody %></span>
+                                </li>
+                                <% } %>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div id="other">
+                        <ul class="tasks">
+                            <li class="category-title">Other</li>
+                            <% for(let i=0; i < info.length; i++) {%>
+                                <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'other') { %>
+                                <li class="task">
+                                    <span class='fa fa-trash'></span>
+                                    <span><%= info[i].taskBody %></span>
+                                </li>
+                                <% } %>
+                            <% } %>
+                        </ul>
+                    </div>
+                </section>
             </div>
         </section>
         <div class="add-to-do">
@@ -62,7 +118,7 @@
                     <option value="todo" selected>To Do</option>
                 </select>
                 <input type="text" placeholder="Add an item" maxlength="35" name="taskBody">
-                <select id="grocery-category" name="grocery-category">
+                <select id="gc" name="gc">
                     <option value="none" selected>Select a category</option>
                     <option value="produce">Produce</option>
                     <option value="frozen">Frozen</option>
@@ -84,11 +140,11 @@
                 <% for(let i=0; i < info.length; i++) {%>
                     <% if(info[i].class === 'message') { %>
                         <% let date = info[i].timeSent.toString().split(' ') %>
-                    <li class="message">
-                        <span class="date"><%= date.slice(4,5) %></span>
-                        <span><%= info[i].messageBody %></span>
-                        <!-- <span class='fa fa-trash'></span> -->
-                    </li>
+                        <li class="message">
+                            <span class="date"><%= date.slice(4,5) %></span>
+                            <span><%= info[i].messageBody %></span>
+                            <!-- <span class='fa fa-trash'></span> -->
+                        </li>
                     <% } %>
                 <% } %>
             </ul>    
