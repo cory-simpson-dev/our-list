@@ -27,6 +27,11 @@ In the near future I hope to implement the following:
 
 ## Changelog
 
+2022/06/14:
+
+- redesigned layout with grid/flex
+- altered fonts
+
 2022/06/13:
 
 - added additional grocery categories to be sorted by

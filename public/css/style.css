@@ -2,35 +2,90 @@
     box-sizing: border-box;
 }
 
+/* WIREFRAME */
+
 html {
     font-size: 10px;
     display: flex;
     justify-content: center;
 }
 
-/* LAYOUT */
-
 body {
-    margin: 0;
-    padding: 1rem 2rem 2rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    display: grid;
     height: 100vh;
-    max-width: 70rem;
-    min-width: 39rem;
-    background-color: rgb(211, 248, 255);
+    grid-template-rows: 1fr 1fr minmax(0,6fr) 4rem minmax(0,4fr);
+    padding: 2rem;
+}
+
+div.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.selection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.tasks-container {
+    display: flex;
+}
+
+div.add-to-do {
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+section#todo-list {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+}
+
+div.chore-container {
+    height: 100%;
+    overflow: auto;
+}
+
+section#todo-list h3,
+li.task {
+    display: grid;
+    grid-template-columns: 1fr 6fr 3fr;
+}
+
+div.add-to-do {
+    height: 100%;
+    width: 100%;
+}
+
+form.add-item-form {
+    display: flex;
+}
+
+form.add-item-form > * {
+    width: 50%;
+    border: .5px solid #bbb;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    padding: .8rem;
+}
+
+div.messages-container {
+    display: grid;
+    grid-template-rows: minmax(0, 6fr) 1fr;
+}
+
+#category,
+.add-item-form button {
+    display: none;
 }
 
 /* DESIGN */
 
-div.header {
-    align-self: center;
-    padding: 2rem;
-}
-
 h1 {
-    font-size: 2.4rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
 }
 
 div.selection-container {
@@ -40,21 +95,107 @@ div.selection-container {
 
 span.selection {
     padding: 1rem;
+    font-size: 2rem;
 }
 
+span.todo,
+span.grocery {
+    width: 10rem;
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+}
+
+.category-title{
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+}
 span.todo {
     background-color: seashell;
-    border: 1px solid black;
     border-radius: 5px 0 0 5px;
-    width: 6rem;
-    text-align: center;
+    border-right: 1px solid #ccc;
 }
 
 span.grocery {
-    background-color: rgb(181, 222, 241);
-    border: 1px solid black;
+    background-color: seashell;
     border-radius: 0 5px 5px 0px;
-    width: 6rem;
+}
+
+span.selection:hover {
+    -webkit-box-shadow: inset 0 0 .5rem #ccc;
+    box-shadow: inset 0 0 .5rem #ccc;
+}
+
+span.center{
+    margin: auto;
+}
+
+span.fa-trash {
+    font-size: 1rem;
+    margin: auto;
+    padding: .2rem;
+}
+
+li.task {
+    font-size: 1.4rem;
+    padding: .5rem;
+}
+
+section#grocery-list {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 3rem minmax(0,1fr);
+}
+
+div.groceries-container {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    max-height: 100%;
+}
+
+section#grocery-right {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    max-height: 100%;
+    min-height: 0;
+}
+
+li.category-title {
+    text-align: center;
+    padding: .5rem;
+}
+
+section#grocery-right > div,
+div.uncategorized-groceries {
+    max-height: 100%;
+    overflow: auto;
+    border-radius: .5rem;
+}
+
+div.uncategorized-groceries {
+    border: 1px solid black;
+}
+
+div#produce {
+    border: 1px solid rgb(76, 197, 123);
+    background:rgb(206, 255, 225);
+}
+
+div#frozen {
+    border: 1px solid rgb(89, 155, 253);
+    background:rgb(195, 219, 255);
+}
+
+div#bakery {
+    border: 1px solid rgb(214, 163, 68);
+    background:rgb(255, 243, 192);
+}
+
+div#other {
+    border: 1px solid rgb(182, 92, 209);
+    background:rgb(243, 203, 255);
 }
 
 /* SCROLL BAR DESIGNS */
@@ -81,95 +222,26 @@ span.grocery {
     }
 }
 
-/* TASKS SECTION DESIGN */
-
-h3 {
-    font-size: 2rem;
-    text-align: center;
-    padding: 1rem;
-}
-
-li.task {
-    font-size: 1.4rem;
-    padding: .2rem;
-}
-
-div.tasks-container {
-    height: 48%;
-    margin-top: 2rem;
-    border: 1px solid black;
-    border-radius: .5rem;
-}
-
-div.chore-container,
-div.groceries-container {
-    padding: .2rem;
-    min-height: 30rem;
-    height: 50%;
-    overflow: auto;
-}
-
-/* @media (min-width: 40rem) {
-    section#grocery-list,
-    section#todo-list {
-        min-height: 40rem;
-    }
-} */
-
-div.groceries-container {
-    display: flex;
-}
-
-div.uncategorized-groceries {
-    width: 30%;
-}
-
-section#grocery-right {
-    width: 70%;
-    display: flex;
-    flex-flow: column wrap;
-}
-
-#grocery-right > div {
-    width: 50%;
-    height: 50%;
-    overflow: auto;
-}
-
-span.deadline{
-    display: block;
-    float: right;
-}
-
-#category {
-    display: none;
-}
-
-.add-item-form {
-    display: flex;
-}
-
-.add-item-form input,
-#gc {
-    width: 50%;
-    border: .5px solid #bbb;
-    border-radius: .5rem;
-    font-size: 1.6rem;
-    height: 4.2rem;
-    padding: 1rem;
-}
-
-.add-item-form button {
-    display: none;
-}
-
-/* CHAT SECTION DESIGN */
+/* MESSAGES SECTION */
 
 li.message {
-    list-style-type: none;
     line-height: 2.5rem;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
     margin: 0 1rem;
+}
+
+div.chat-container {
+    max-height: 100%;
+    overflow: auto;
+}
+
+
+.send-message-form input {
+    width: 100%;
+    border: .5px solid #bbb;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    padding: .8rem;
 }
 
 li.message span {
@@ -179,25 +251,21 @@ li.message span {
 span.date {
     margin-right: 1rem;
 }
-div.messages-container {
-    border: 1px solid black;
-    border-radius: .5rem;
-    margin-top: 2rem;
-}
-
-div.chat-container {
-    height: 30vh;
-    overflow: auto;
-}
-
-.send-message-form input {
-    width: 100%;
-    border: .5px solid #bbb;
-    border-radius: .5rem;
-    font-size: 1.6rem;
-    padding: 1rem;
-}
 
 .send-message-form button {
     display: none;
+}
+
+/* ADDITIONAL STYLES */
+
+h3 {
+    font-size: 2rem;
+}
+
+h3.grocery {
+    margin: auto;
+}
+
+li.category-title {
+    font-size: 1.6rem;
 }

@@ -17,28 +17,28 @@ function selectTodo() {
     localStorage.setItem('selected-list', 'todo')
     groceryList.style.display = 'none'
     groceryCategory.style.display = 'none'
-    todoList.style.display = 'block'
+    todoList.style.display = 'grid'
     deadline.style.display = 'block'
     category.value = 'todo'
 }
 if (localStorage.getItem('selected-list') === 'todo') {
     groceryList.style.display = 'none'
     groceryCategory.style.display = 'none'
-    todoList.style.display = 'block'
+    todoList.style.display = 'grid'
     deadline.style.display = 'block'
     category.value = 'todo'
 }
 
 function selectGrocery() {
     localStorage.setItem('selected-list', 'grocery')
-    groceryList.style.display = 'block'
+    groceryList.style.display = 'grid'
     groceryCategory.style.display = 'block'
     todoList.style.display = 'none'
     deadline.style.display = 'none'
     category.value = 'grocery'
 }
 if (localStorage.getItem('selected-list') === 'grocery') {
-    groceryList.style.display = 'block'
+    groceryList.style.display = 'grid'
     groceryCategory.style.display = 'block'
     todoList.style.display = 'none'
     deadline.style.display = 'none'

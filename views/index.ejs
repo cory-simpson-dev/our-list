@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=EB+Garamond:wght@400;500&family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 
@@ -15,14 +18,15 @@
         <h1>Our List</h1>
     </div>
     <div class="selection-container">
-        <span id="todo-selection" class="todo selection">To-do</span>
+        <span id="todo-selection" class="todo selection">Tasks</span>
         <span id="grocery-selection" class="grocery selection">Grocery</span>
     </div>
     <div class="tasks-container">
         <section id="todo-list" class="tasks-toggle">
             <h3>
-                <span class="task">Task</span>
-                <span class="deadline">Deadline</span>
+                <span class="blank"></span>
+                <span class="task center"></span>
+                <span class="center category-title">Deadline</span>
             </h3>
             <div class="chore-container">
                 <ul class="tasks chore-ul">
@@ -40,10 +44,11 @@
         </section>
 
         <section id="grocery-list" class="groceries-toggle">
-            <h3>Grocery List</h3>
+            <h3 class="grocery">Grocery List</h3>
             <div class="groceries-container">
                 <div class="uncategorized-groceries">
                     <ul class="tasks">
+                        <li class="category-title">Uncategorized</li>
                         <% for(let i=0; i < info.length; i++) {%>
                             <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'none') { %>
                             <li class="task">
@@ -110,28 +115,28 @@
                 </section>
             </div>
         </section>
-        <div class="add-to-do">
-
-            <form class="add-item-form" action="/addToDo" method="POST">
-                <select id="category" name="category">
-                    <option value="grocery">Grocery</option>
-                    <option value="todo" selected>To Do</option>
-                </select>
-                <input type="text" placeholder="Add an item" maxlength="35" name="taskBody">
-                <select id="gc" name="gc">
-                    <option value="none" selected>Select a category</option>
-                    <option value="produce">Produce</option>
-                    <option value="frozen">Frozen</option>
-                    <option value="bakery">Bakery</option>
-                    <option value="other">Other</option>
-                </select>
-                <input id="deadline" type="datetime-local" name="deadline">
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        
     </div>
     
-   
+    <div class="add-to-do">
+
+        <form class="add-item-form" action="/addToDo" method="POST">
+            <select id="category" name="category">
+                <option value="grocery">Grocery</option>
+                <option value="todo" selected>To Do</option>
+            </select>
+            <select id="gc" name="gc">
+                <option value="none" selected>Select a category</option>
+                <option value="produce">Produce</option>
+                <option value="frozen">Frozen</option>
+                <option value="bakery">Bakery</option>
+                <option value="other">Other</option>
+            </select>
+            <input id="deadline" type="datetime-local" name="deadline">
+            <input type="text" placeholder="Add an item" maxlength="35" name="taskBody">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <div id="messages" class="messages-container">
 
