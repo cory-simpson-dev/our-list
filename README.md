@@ -27,6 +27,10 @@ In the near future I hope to implement the following:
 
 ## Changelog
 
+2022/06/15:
+
+- improved design
+
 2022/06/14:
 
 - redesigned layout with grid/flex

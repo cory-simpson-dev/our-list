@@ -15,6 +15,7 @@ body {
     height: 100vh;
     grid-template-rows: 1fr 1fr minmax(0,6fr) 4rem minmax(0,4fr);
     padding: 2rem;
+    background: linear-gradient(0.25turn,seashell 0%, #fff 25%, #fff 75%, seashell 100% )
 }
 
 div.header {
@@ -141,6 +142,9 @@ li.task {
     padding: .5rem;
 }
 
+span.deadline {
+    text-align: center;
+}
 section#grocery-list {
     width: 100%;
     display: grid;
