@@ -10,9 +10,11 @@ My wife and I often have trouble keeping track of our mutual to-do list
 I laid the groundwork for Our List with node.js, express, and the EJS templating engine. 
 The data is stored in a single collection on a shared MongoDB cluster. The privacy is a non-issue since currently only my wife and I use the application. In essence, it is a rather simple CRUD application with users being able to create and delete task items and post time-stamped messages.
 
-A mobile-first approach was used for the design. Flexbox played a huge factor in keeping the design as simple as possible. The single page design started with a chat at the bottom, and the toggle-able lists in the mid-top section. An additional form was created so the form interface of each list wasn't crowded. To stay true to my original objective of building a simple application, I decided to add yet another category section to the to-do list. 
+A mobile-first approach was used for the design. Both grid and flexbox played a huge factor in keeping the design as simple as possible. The single page design started with a chat at the bottom, and the toggle-able lists in the mid-top section. An additional form was created so the form interface of each list wasn't crowded. To stay true to my original objective of building a simple application, I decided to add yet another category section to the to-do list. 
 
 To prevent the user from being directed to the initial ejs render, localStorage is utilized to save the last category selected by them. On load, the page that is sitting in the localStorage item 'category' will be rendered.
+
+A 3rd party module called Dragula was implemented into the grocery list sections to allow users to drag their items to and from different categories. The unordered lists were given a set height within their grid to ensure that users could still drag the list items to an empty list. Maintaining the desired category on refreshes has not been completed at the time of writing this latest update - it is next on the chopping block.
 
 See future considerations for Our List in the Roadmap section below.
 
@@ -26,6 +28,12 @@ In the near future I hope to implement the following:
     - limited chat storage/display with scroll wheel
 
 ## Changelog
+
+2022/06/23:
+
+- added dragging capabilities between grocery categories (dragula)
+- improved scrolling capabilities in grocery and chat sections
+- added date list items in chat
 
 2022/06/15:
 

@@ -63,3 +63,9 @@ async function deleteTask(){
         console.log(err)
     }
 }
+
+// Dragula
+
+function init() {
+    dragula([document.querySelector('#dragUncategorized'), document.querySelector('#dragProduce'), document.querySelector('#dragFrozen'), document.querySelector('#dragBakery'), document.querySelector('#dragOther')]);
+}

@@ -145,10 +145,15 @@ li.task {
 span.deadline {
     text-align: center;
 }
+
 section#grocery-list {
     width: 100%;
     display: grid;
     grid-template-rows: 3rem minmax(0,1fr);
+}
+
+ul.tasksContainer {
+    height: 100%;
 }
 
 div.groceries-container {
@@ -156,6 +161,11 @@ div.groceries-container {
     padding: 1rem;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     max-height: 100%;
+}
+
+.grid-26-1 {
+    display: grid;
+    grid-template-rows: 26px 1fr;
 }
 
 section#grocery-right {
@@ -202,7 +212,7 @@ div#other {
     background:rgb(243, 203, 255);
 }
 
-/* SCROLL BAR DESIGNS */
+/* SCROLL BAR DESIGNS
 
 @media (min-width: 40rem) {
     
@@ -224,7 +234,7 @@ div#other {
         background-color: darkgrey;
         outline: 1px solid slategrey;
     }
-}
+} */
 
 /* MESSAGES SECTION */
 
@@ -239,6 +249,11 @@ div.chat-container {
     overflow: auto;
 }
 
+.send-message-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .send-message-form input {
     width: 100%;
