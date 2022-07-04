@@ -29,6 +29,10 @@ In the near future I hope to implement the following:
 
 ## Changelog
 
+2022/07/03:
+
+- added UUID to grocery, task and message objects on creation
+
 2022/06/23:
 
 - added dragging capabilities between grocery categories (dragula)

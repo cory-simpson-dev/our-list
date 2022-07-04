@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
+const uuid = require("uuid")
 const PORT = 2121
 require('dotenv').config()
 
@@ -30,7 +31,8 @@ app.get('/',(request, response)=>{
 })
 
 app.post('/addToDo', (request, response) => {
-    db.collection('todo').insertOne({class: 'todo', taskBody: request.body.taskBody,
+    let idGen = uuid.v4()
+    db.collection('todo').insertOne({class: 'todo', id: idGen, taskBody: request.body.taskBody,
     deadline: request.body.deadline, category: request.body.category, gc: request.body.gc})
     .then(result => {
         console.log('Item Added')
@@ -40,7 +42,8 @@ app.post('/addToDo', (request, response) => {
 })
 
 app.post('/addMessage', (request, response) => {
-    db.collection('todo').insertOne({class: 'message', messageBody: request.body.messageBody, timeSent: new Date()})
+    let idGen = uuid.v4()
+    db.collection('todo').insertOne({class: 'message', id: idGen, messageBody: request.body.messageBody, timeSent: new Date()})
     .then(result => {
         console.log('Message Sent')
         response.redirect('/')
@@ -66,8 +69,10 @@ app.post('/addMessage', (request, response) => {
 // })
 
 app.delete('/deleteTask', (request, response) => {
+    // taskBody: request.body.taskBodyS
     db.collection('todo').deleteOne({taskBody: request.body.taskBodyS})
     .then(result => {
+        console.log(request)
         console.log('Item Deleted')
         response.json('Item Deleted')
     })

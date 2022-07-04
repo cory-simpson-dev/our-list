@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bevacqua/dragula@3.7.3/dist/dragula.min.css">
 
 </head>
-<body onload="init()">
+<!-- onload="init()" -->
+<body>
     <div class="header">
         <h1>Our List</h1>
     </div>
@@ -51,7 +52,7 @@
                     <ul class="tasks">
                         <li class="category-title">Uncategorized</li>
                     </ul>
-                    <ul id="dragUncategorized" class="tasks tasksContainer">
+                    <ul id="dragUncategorized" class="tasks tasksContainer container">
                         <% for(let i=0; i < info.length; i++) {%>
                             <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'none') { %>
                             <li class="task">
@@ -67,7 +68,7 @@
                         <ul class="tasks">
                             <li class="category-title">Produce</li>
                         </ul>
-                        <ul id="dragProduce" class="tasks tasksContainer">
+                        <ul id="dragProduce" class="tasks tasksContainer container">
                             <% for(let i=0; i < info.length; i++) {%>
                                 <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'produce') { %>
                                 <li class="task">
@@ -82,7 +83,7 @@
                         <ul class="tasks">
                             <li class="category-title">Frozen</li>
                         </ul>
-                        <ul id="dragFrozen" class="tasks tasksContainer">
+                        <ul id="dragFrozen" class="tasks tasksContainer container">
                             <% for(let i=0; i < info.length; i++) {%>
                                 <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'frozen') { %>
                                 <li class="task">
@@ -97,7 +98,7 @@
                         <ul class="tasks">
                             <li class="category-title">Bakery</li>
                         </ul>
-                        <ul id="dragBakery" class="tasks tasksContainer">
+                        <ul id="dragBakery" class="tasks tasksContainer container">
                             <% for(let i=0; i < info.length; i++) {%>
                                 <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'bakery') { %>
                                 <li class="task">
@@ -112,7 +113,7 @@
                         <ul class="tasks">
                             <li class="category-title">Other</li>
                         </ul>
-                        <ul id="dragOther" class="tasks tasksContainer">
+                        <ul id="dragOther" class="tasks tasksContainer container">
                             <% for(let i=0; i < info.length; i++) {%>
                                 <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'other') { %>
                                 <li class="task">
