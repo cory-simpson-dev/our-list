@@ -29,6 +29,13 @@ In the near future I hope to implement the following:
 
 ## Changelog
 
+2022/07/05:
+
+- added template literal id property to li on page load
+- updated delete functions to depend on id (as opposed to innertext)
+- added localstorage for grocery categories (pending updated deleteTask)
+- improved design
+
 2022/07/03:
 
 - added UUID to grocery, task and message objects on creation

@@ -70,9 +70,9 @@ app.post('/addMessage', (request, response) => {
 
 app.delete('/deleteTask', (request, response) => {
     // taskBody: request.body.taskBodyS
-    db.collection('todo').deleteOne({taskBody: request.body.taskBodyS})
+    db.collection('todo').deleteOne({id: request.body.elementids})
     .then(result => {
-        console.log(request)
+        // console.log(request)
         console.log('Item Deleted')
         response.json('Item Deleted')
     })

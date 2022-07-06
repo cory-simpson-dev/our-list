@@ -46,19 +46,21 @@ if (localStorage.getItem('selected-list') === 'grocery') {
 }
 
 async function deleteTask(){
-    const tBody = this.parentNode.childNodes[3].innerText
+    const ids = this.parentNode.id;
+    // const tBody = this.parentNode.childNodes[3].innerText
     try{
+        // 
         const response = await fetch('deleteTask', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'taskBodyS': tBody,
+                'elementids': ids,
+                // 'taskBodyS': tBody
             })
           })
         const data = await response.json()
         console.log(data)
         location.reload()
-
     }catch(err){
         console.log(err)
     }
@@ -70,61 +72,61 @@ async function deleteTask(){
 //     dragula([document.querySelector('#dragUncategorized'), document.querySelector('#dragProduce'), document.querySelector('#dragFrozen'), document.querySelector('#dragBakery'), document.querySelector('#dragOther')]);
 // }
 
-// var dragAndDrop = {
+var dragAndDrop = {
 
-//     store: [],
+    store: [],
     
-//     init: function () {  
+    init: function () {  
     
-//     		self = this;
-//         this.dragula();
-//         this.eventListeners(); 
+    	self = this;
+        this.dragula();
+        this.eventListeners(); 
         
-//         if(localStorage.getItem('store'))
-//         	this.store = JSON.parse(localStorage.getItem('store'));
+        if(localStorage.getItem('store'))
+            this.store = JSON.parse(localStorage.getItem('store'));
           
-//         // querySelectorAll returns a nodelist and should be converted to array to use filter, map and foreach  
-//         var nodesArray = Array.prototype.slice.call(document.querySelectorAll("#left div"));      
+        // querySelectorAll returns a nodelist and should be converted to array to use filter, map and foreach  
+        var nodesArray = Array.prototype.slice.call(document.querySelectorAll("#dragUncategorized li"));      
         
-//         var nodesArray = nodesArray.filter( function(e) { 
-//         	return self.store.map(function(d) { return d['element']; }).indexOf(e.id) === -1; 
-//         }).forEach( function(e) { 
-//         	self.store.push({'element':e.id, 'container': 'left'}); 
-//         });  
+        var nodesArray = nodesArray.filter( e => { 
+            return self.store.map(d => { return d['element']; }).indexOf(e.id) === -1; 
+        }).forEach( e => { 
+        	self.store.push({'element':e.id, 'container': 'dragUncategorized'}); 
+        });  
         
-//         this.store.forEach(function( obj ) {
-//         		document.getElementById(obj.container).appendChild(document.getElementById(obj.element));                        
-//         });
-//     },
+        this.store.forEach( obj => {
+        		document.getElementById(obj.container).appendChild(document.getElementById(obj.element));                        
+        });
+    },
 
-//     eventListeners: function () {
-//         this.dragula.on('drop', this.dropped.bind(this));
-//     },
+    eventListeners: function () {
+        this.dragula.on('drop', this.dropped.bind(this));
+    },
 
-//     dragula: function () {
-//         this.dragula = dragula([document.querySelector('#dragUncategorized'), document.querySelector('#dragProduce'), document.querySelector('#dragFrozen'), document.querySelector('#dragBakery'), document.querySelector('#dragOther')],
-//         // this.dragula = dragula([document.getElementById('left'), document.getElementById('right')],
-//         {           
-//             copy: false,
-//         });
-//     },   
+    dragula: function () {
+        this.dragula = dragula([document.getElementById('dragUncategorized'), document.getElementById('dragProduce'), document.getElementById('dragFrozen'), document.getElementById('dragBakery'), document.getElementById('dragOther')],
+        // this.dragula = dragula([document.getElementById('left'), document.getElementById('right')],
+        {           
+            copy: false,
+        });
+    },   
    
     
-//     dropped: function (el, target, source, sibling) {
-//     		// Remove element from store if it exists
-//     		var indexEl = this.store.map(function(d) { return d['element']; }).indexOf(el.id);
-//         if (indexEl>-1)
-//     			this.store.splice(indexEl, 1);         
+    dropped: function (el, target, source, sibling) {
+    		// Remove element from store if it exists
+    		var indexEl = this.store.map( d => { return d['element']; }).indexOf(el.id);
+        if (indexEl>-1)
+    			this.store.splice(indexEl, 1);         
         
-//         var indexDrop = this.store.length;
-//         if(sibling) { // If sibling store before sibling          	
-//             indexDrop = this.store.map(function(d) { return d['element']; }).indexOf(sibling.id);     
-//         }
+        var indexDrop = this.store.length;
+        if(sibling) { // If sibling store before sibling          	
+            indexDrop = this.store.map( d => { return d['element']; }).indexOf(sibling.id);     
+        }
        
-//         this.store.splice(indexDrop, 0, {'element': el.id, 'container': target.id}); 
+        this.store.splice(indexDrop, 0, {'element': el.id, 'container': target.id}); 
         
-//         localStorage.setItem('store', JSON.stringify(this.store));
-//     }
-// }
+        localStorage.setItem('store', JSON.stringify(this.store));
+    }
+}
 
 // dragAndDrop.init();

@@ -15,7 +15,7 @@
 
 </head>
 <!-- onload="init()" -->
-<body>
+<body onload="dragAndDrop.init()">
     <div class="header">
         <h1>Our List</h1>
     </div>
@@ -34,7 +34,7 @@
                 <ul class="tasks chore-ul">
                     <% for(let i=0; i < info.length; i++) {%>
                         <% if(info[i].class === 'todo' && info[i].category === 'todo') { %>
-                        <li class="task">
+                        <li id=<%= info[i].id %> class="task">
                             <span class='fa fa-trash'></span>
                             <span><%= info[i].taskBody %></span>
                             <span class="deadline"><%= info[i].deadline.split('T').join(' ') %></span>
@@ -55,7 +55,7 @@
                     <ul id="dragUncategorized" class="tasks tasksContainer container">
                         <% for(let i=0; i < info.length; i++) {%>
                             <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'none') { %>
-                            <li class="task">
+                            <li id=<%= info[i].id %> class="task">
                                 <span class='fa fa-trash'></span>
                                 <span><%= info[i].taskBody %></span>
                             </li>
@@ -71,7 +71,7 @@
                         <ul id="dragProduce" class="tasks tasksContainer container">
                             <% for(let i=0; i < info.length; i++) {%>
                                 <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'produce') { %>
-                                <li class="task">
+                                <li id=<%= info[i].id %> class="task">
                                     <span class='fa fa-trash'></span>
                                     <span><%= info[i].taskBody %></span>
                                 </li>
@@ -86,7 +86,7 @@
                         <ul id="dragFrozen" class="tasks tasksContainer container">
                             <% for(let i=0; i < info.length; i++) {%>
                                 <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'frozen') { %>
-                                <li class="task">
+                                <li id=<%= info[i].id %> class="task">
                                     <span class='fa fa-trash'></span>
                                     <span><%= info[i].taskBody %></span>
                                 </li>
@@ -101,7 +101,7 @@
                         <ul id="dragBakery" class="tasks tasksContainer container">
                             <% for(let i=0; i < info.length; i++) {%>
                                 <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'bakery') { %>
-                                <li class="task">
+                                <li id=<%= info[i].id %> class="task">
                                     <span class='fa fa-trash'></span>
                                     <span><%= info[i].taskBody %></span>
                                 </li>
@@ -116,7 +116,7 @@
                         <ul id="dragOther" class="tasks tasksContainer container">
                             <% for(let i=0; i < info.length; i++) {%>
                                 <% if(info[i].class === 'todo' && info[i].category === 'grocery' && info[i].gc === 'other') { %>
-                                <li class="task">
+                                <li id=<%= info[i].id %> class="task">
                                     <span class='fa fa-trash'></span>
                                     <span><%= info[i].taskBody %></span>
                                 </li>
@@ -158,11 +158,11 @@
                     <% if(info[i].class === 'message') { %>
                         <% let date = info[i].timeSent.toString().split(' ') %>
                         <% if(i===0) {%>
-                            <li class="messageDate"><%= date.slice(0,4)%></li>
+                            <li id=<%= info[i].id %> class="messageDate"><%= date.slice(0,4)%></li>
                         <% } else if(date[2] !== info[i-1].timeSent.toString().split(' ')[2]) {%>
-                            <li class="messageDate"><%= date.slice(0,4)%></li>
+                            <li id=<%= info[i].id %> class="messageDate"><%= date.slice(0,4)%></li>
                         <% } %>
-                        <li class="message">
+                        <li id=<%= info[i].id %> class="message">
                             <span class="date"><%= date.slice(4,5) %></span>
                             <span><%= info[i].messageBody %></span>
                             <!-- <span class='fa fa-trash'></span> -->

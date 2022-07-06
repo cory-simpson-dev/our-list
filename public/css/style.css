@@ -12,6 +12,7 @@ html {
 
 body {
     display: grid;
+    width: 39rem;
     height: 100vh;
     grid-template-rows: 1fr 1fr minmax(0,6fr) 4rem minmax(0,4fr);
     padding: 2rem;
@@ -240,8 +241,18 @@ div#other {
 
 li.message {
     line-height: 2.5rem;
-    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     margin: 0 1rem;
+}
+
+ul.messages li:last-child {
+    border-bottom: none;
+}
+
+li.messageDate {
+    line-height: 3rem;
+    text-align: center;
+    vertical-align: middle;
 }
 
 div.chat-container {
@@ -263,7 +274,8 @@ div.chat-container {
     padding: .8rem;
 }
 
-li.message span {
+li.message span,
+li.messageDate {
     font-size: 1.4rem;
 }
 
