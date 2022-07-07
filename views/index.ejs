@@ -49,7 +49,7 @@
             <h3 class="grocery">Grocery List</h3>
             <div class="groceries-container">
                 <div class="uncategorized-groceries grid-26-1">
-                    <ul class="tasks">
+                    <ul class="tasks sticky colorWHITE">
                         <li class="category-title">Uncategorized</li>
                     </ul>
                     <ul id="dragUncategorized" class="tasks tasksContainer container">
@@ -65,7 +65,7 @@
                 </div>
                 <section id="grocery-right">
                     <div id="produce" class="grid-26-1">
-                        <ul class="tasks">
+                        <ul class="tasks sticky colorGREEN">
                             <li class="category-title">Produce</li>
                         </ul>
                         <ul id="dragProduce" class="tasks tasksContainer container">
@@ -80,7 +80,7 @@
                         </ul>
                     </div>
                     <div id="frozen" class="grid-26-1">
-                        <ul class="tasks">
+                        <ul class="tasks sticky colorBLUE">
                             <li class="category-title">Frozen</li>
                         </ul>
                         <ul id="dragFrozen" class="tasks tasksContainer container">
@@ -95,7 +95,7 @@
                         </ul>
                     </div>
                     <div id="bakery" class="grid-26-1">
-                        <ul class="tasks">
+                        <ul class="tasks sticky colorORANGE">
                             <li class="category-title">Bakery</li>
                         </ul>
                         <ul id="dragBakery" class="tasks tasksContainer container">
@@ -110,7 +110,7 @@
                         </ul>
                     </div>
                     <div id="other" class="grid-26-1">
-                        <ul class="tasks">
+                        <ul class="tasks sticky colorPINK">
                             <li class="category-title">Other</li>
                         </ul>
                         <ul id="dragOther" class="tasks tasksContainer container">
@@ -158,9 +158,9 @@
                     <% if(info[i].class === 'message') { %>
                         <% let date = info[i].timeSent.toString().split(' ') %>
                         <% if(i===0) {%>
-                            <li id=<%= info[i].id %> class="messageDate"><%= date.slice(0,4)%></li>
+                            <li id=<%= info[i].id %> class="messageDate"><%= date.slice(0,4).join('-')%></li>
                         <% } else if(date[2] !== info[i-1].timeSent.toString().split(' ')[2]) {%>
-                            <li id=<%= info[i].id %> class="messageDate"><%= date.slice(0,4)%></li>
+                            <li id=<%= info[i].id %> class="messageDate"><%= date.slice(0,4).join('-')%></li>
                         <% } %>
                         <li id=<%= info[i].id %> class="message">
                             <span class="date"><%= date.slice(4,5) %></span>

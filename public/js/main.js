@@ -21,6 +21,11 @@ function selectTodo() {
     deadline.style.display = 'block'
     category.value = 'todo'
 }
+// load with Todo selected
+if (localStorage.getItem('selected-list') === null) {
+    selectTodo();
+}
+
 if (localStorage.getItem('selected-list') === 'todo') {
     groceryList.style.display = 'none'
     groceryCategory.style.display = 'none'
@@ -47,6 +52,8 @@ if (localStorage.getItem('selected-list') === 'grocery') {
 
 async function deleteTask(){
     const ids = this.parentNode.id;
+    const filtered = JSON.parse(localStorage.getItem('store')).filter(ele => ele.element !== ids)
+    localStorage.setItem('store', JSON.stringify(filtered))
     // const tBody = this.parentNode.childNodes[3].innerText
     try{
         // 

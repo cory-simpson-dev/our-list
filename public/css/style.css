@@ -83,6 +83,47 @@ div.messages-container {
     display: none;
 }
 
+/* COLORS */
+
+/* div#produce {
+    border: 1px solid rgb(76, 197, 123);
+    background:rgb(206, 255, 225);
+}
+
+div#frozen {
+    border: 1px solid rgb(89, 155, 253);
+    background:rgb(195, 219, 255);
+}
+
+div#bakery {
+    border: 1px solid rgb(214, 163, 68);
+    background:rgb(255, 243, 192);
+}
+
+div#other {
+    border: 1px solid rgb(182, 92, 209);
+    background:rgb(243, 203, 255);
+} */
+ul.colorWHITE {
+    background: #fff;
+}
+
+ul.colorGREEN {
+    background: rgb(76, 197, 123)
+}
+
+ul.colorBLUE {
+    background: rgb(89, 155, 253)
+}
+
+ul.colorORANGE {
+    background: rgb(214, 163, 68);
+}
+
+ul.colorPINK {
+    background: rgb(182, 92, 209);
+}
+
 /* DESIGN */
 
 h1 {
@@ -112,6 +153,12 @@ span.grocery {
     font-family: 'EB Garamond', serif;
     font-weight: 400;
 }
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
 span.todo {
     background-color: seashell;
     border-radius: 5px 0 0 5px;

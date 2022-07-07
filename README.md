@@ -29,6 +29,11 @@ In the near future I hope to implement the following:
 
 ## Changelog
 
+2022/07/06:
+
+- added localstorage update to delete function
+- improved design
+
 2022/07/05:
 
 - added template literal id property to li on page load
