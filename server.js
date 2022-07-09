@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 const uuid = require("uuid")
-const PORT = 2121
+const PORT = 8000
+const uri = process.env.MONGODB_URI
 require('dotenv').config()
 
 
