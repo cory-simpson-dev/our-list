@@ -29,6 +29,10 @@ In the near future I hope to implement the following:
 
 ## Changelog
 
+2022/08/02:
+
+- added favicon
+
 2022/07/06:
 
 - added localstorage update to delete function

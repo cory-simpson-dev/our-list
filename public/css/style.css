@@ -89,17 +89,14 @@ div.messages-container {
     border: 1px solid rgb(76, 197, 123);
     background:rgb(206, 255, 225);
 }
-
 div#frozen {
     border: 1px solid rgb(89, 155, 253);
     background:rgb(195, 219, 255);
 }
-
 div#bakery {
     border: 1px solid rgb(214, 163, 68);
     background:rgb(255, 243, 192);
 }
-
 div#other {
     border: 1px solid rgb(182, 92, 209);
     background:rgb(243, 203, 255);
@@ -261,7 +258,6 @@ div#other {
 }
 
 /* SCROLL BAR DESIGNS
-
 @media (min-width: 40rem) {
     
     div.chore-container::-webkit-scrollbar,
@@ -269,13 +265,11 @@ div#other {
     div.chat-container::-webkit-scrollbar {
         width: 1em;
     }
-
     div.chore-container::-webkit-scrollbar-track,
     div.groceries-container::-webkit-scrollbar-track,
     div.chat-container::-webkit-scrollbar-track {
         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     } 
-
     div.chore-container::-webkit-scrollbar-thumb,
     div.groceries-container::-webkit-scrollbar-thumb,
     div.chat-container::-webkit-scrollbar-thumb {
